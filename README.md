@@ -10,7 +10,7 @@ Está construido con **Astro** para un rendimiento óptimo (sitio estático) y e
 
 Puedes ver el sitio desplegado en la siguiente URL:
 
-**➡️ [https://tu-sitio.netlify.app](https://tu-sitio.netlify.app)** *(Reemplaza esto con tu URL de Netlify una vez desplegado)*
+** https://novarton.netlify.app/**
 
 ---
 
