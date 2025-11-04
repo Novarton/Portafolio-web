@@ -1,20 +1,45 @@
 ---
-import "../styles/global.css";
+import Layout from '../layouts/Layout.astro';
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Mi Portafolio</title>
-  </head>
-  <body class="bg-white  dark:bg-gray-900">
-    <div class="text-white p-10 m-5 rounded-lg">
-      <h1 class="text-4xl font-bold text-cyan-400 mb-4">
-        ¡Tailwind Funciona!
-      </h1>
-      <p class="text-lg">
-        Si este texto es blanco, el fondo es gris oscuro, y el título es azul cian, todo está perfecto.
-      </p>
+<Layout title="Adrian Gallardo - En Construcción">
+
+  <main class="max-w-lg w-full text-center bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700">
+    
+    <h1 class="text-4xl font-bold text-cyan-400 mb-2">
+      Sitio en Construcción
+    </h1>
+    
+    <p class="text-xl text-gray-300 mb-6">
+      ¡Hola! Soy <span class="font-semibold text-white">Adrian Gallardo</span>.
+    </p>
+    
+    <p class="text-gray-400 mb-8">
+      Estoy trabajando activamente en mi nuevo portafolio web. Vuelve pronto para ver mis proyectos y habilidades.
+    </p>
+
+    <hr class="border-gray-600 mb-8" />
+    
+    <p class="text-gray-300 mb-4">Mientras tanto, conectemos:</p>
+    
+    <div class="flex justify-center gap-4">
+      <a 
+        href="https://www.linkedin.com/in/adrian-gallardo-27913a390/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="bg-cyan-600 hover:bg-cyan-500 text-white font-medium py-2 px-5 rounded-lg transition-colors"
+      >
+        LinkedIn
+      </a>
+      
+      <a 
+        href="https://github.com/Novarton" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-5 rounded-lg transition-colors"
+      >
+        GitHub
+      </a>
     </div>
-  </body>
-</html>
+    
+  </main>
+</Layout>
