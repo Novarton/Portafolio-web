@@ -11,6 +11,13 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title || 'Portafolio'}</title>
+
+    <script is:inline>
+      import Alpine from 'alpinejs';
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script>
+    
   </head>
   <body class="bg-gray-900 text-white">
     <Header />

@@ -19,10 +19,59 @@ const TU_EMAIL = "tu-email@gmail.com";
     Descargar mi CV
   </a>
 
-  <div class="flex justify-center gap-6">
-    <a href="mailto:{TU_EMAIL}" class="text-gray-400 hover:text-cyan-400 transition-colors">
-      Email
-    </a>
+  <form 
+    name="contact" 
+    method="POST" 
+    data-netlify="true" 
+    class="max-w-xl mx-auto text-left"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <div class="mb-4">
+      <label for="name" class="block text-gray-300 mb-2">Tu Nombre</label>
+      <input 
+        type="text" 
+        name="name" 
+        id="name" 
+        required 
+        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      />
+    </div>
+    
+    <div class="mb-4">
+      <label for="email" class="block text-gray-300 mb-2">Tu Email</label>
+      <input 
+        type="email" 
+        name="email" 
+        id="email" 
+        required 
+        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      />
+    </div>
+    
+    <div class="mb-4">
+      <label for="message" class="block text-gray-300 mb-2">Mensaje</label>
+      <textarea 
+        name="message" 
+        id="message" 
+        rows="4" 
+        required 
+        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      ></textarea>
+    </div>
+    
+    <div class="text-center">
+      <button 
+        type="submit" 
+        class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-8 rounded-lg transition-colors w-full sm:w-auto"
+      >
+        Enviar Mensaje
+      </button>
+    </div>
+  </form>
+
+  <div class="flex justify-center gap-6 mt-12">
+
     <a 
       href="https://www.linkedin.com/in/adrian-gallardo-27913a390/" 
       target="_blank" 
