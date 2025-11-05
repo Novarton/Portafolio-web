@@ -1,0 +1,43 @@
+---
+// Asegúrate de que este nombre coincida con tu archivo en 'public/'
+const CV_URL = "/CV_Adrian_Gallardo.pdf"; 
+const TU_EMAIL = "tu-email@gmail.com";
+---
+<section id="contacto" class="py-16 md:py-24 text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+    Hablemos
+  </h2>
+  <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto">
+    Estoy buscando activamente mi estancia profesional. Me encantaría conectar y discutir cómo puedo contribuir a tu equipo.
+  </p>
+
+  <a 
+    href={CV_URL} 
+    download="CV_Adrian_Gallardo_Desarrollador.pdf" 
+    class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg inline-block mb-12"
+  >
+    Descargar mi CV
+  </a>
+
+  <div class="flex justify-center gap-6">
+    <a href="mailto:{TU_EMAIL}" class="text-gray-400 hover:text-cyan-400 transition-colors">
+      Email
+    </a>
+    <a 
+      href="https://www.linkedin.com/in/adrian-gallardo-27913a390/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-gray-400 hover:text-cyan-400 transition-colors"
+    >
+      LinkedIn
+    </a>
+    <a 
+      href="https://github.com/Novarton" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-gray-400 hover:text-cyan-400 transition-colors"
+    >
+      GitHub
+    </a>
+  </div>
+</section>

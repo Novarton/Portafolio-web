@@ -1,45 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Proyectos.astro';
+import Skills from '../components/Habilidades.astro';
+import Contact from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
 ---
 <Layout title="Adrian Gallardo - En Construcción">
 
-  <main class="max-w-lg w-full text-center bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700">
-    
-    <h1 class="text-4xl font-bold text-cyan-400 mb-2">
-      Sitio en Construcción
-    </h1>
-    
-    <p class="text-xl text-gray-300 mb-6">
-      ¡Hola! Soy <span class="font-semibold text-white">Adrian Gallardo</span>.
-    </p>
-    
-    <p class="text-gray-400 mb-8">
-      Estoy trabajando activamente en mi nuevo portafolio web. Vuelve pronto para ver mis proyectos y habilidades.
-    </p>
+<div class="container mx-auto max-w-4xl px-4">
 
-    <hr class="border-gray-600 mb-8" />
-    
-    <p class="text-gray-300 mb-4">Mientras tanto, conectemos:</p>
-    
-    <div class="flex justify-center gap-4">
-      <a 
-        href="https://www.linkedin.com/in/adrian-gallardo-27913a390/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="bg-cyan-600 hover:bg-cyan-500 text-white font-medium py-2 px-5 rounded-lg transition-colors"
-      >
-        LinkedIn
-      </a>
-      
-      <a 
-        href="https://github.com/Novarton" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-5 rounded-lg transition-colors"
-      >
-        GitHub
-      </a>
-    </div>
-    
-  </main>
+    <Hero />
+    <Projects />
+    <Skills />
+    <Contact />
+
+  </div>
+
+  <Footer />
 </Layout>
