@@ -1,18 +1,17 @@
 ---
 
-import '@splidejs/splide/css'; 
-
-
 const sagszImages = [
   { src: "/images/sagsz-1.png", alt: "Login de SAGSZ" },
-  { src: "/images/sagsz-2.png", alt: "Dashboard de SAGSZ" },
-  { src: "/images/sagsz-3.png", alt: "Formulario de SAGSZ" },
+  { src: "/images/sagsz-2.png", alt: "Panel Inicial de SAGSZ" },
+  { src: "/images/sagsz-3.png", alt: "Formulario de Crianza" },
+  { src: "/images/sagsz-4.png", alt: "Simulando Producción" },
 ];
 
 const homelabImages = [
-  { src: "/images/servidor-fisico.jpg", alt: "Mi servidor casero" },
-  { src: "/images/htop.png", alt: "Monitor de recursos htop" },
+  { src: "/images/servidor-fisico.svg", alt: "Mi servidor casero" },
+  { src: "/images/htop.svg", alt: "Monitor de recursos htop" },
   { src: "/images/diagrama-red.png", alt: "Diagrama de mi red" },
+  { src: "/images/produccion.svg", alt: "Simulando Producción" }, 
 ];
 ---
 
@@ -22,86 +21,107 @@ const homelabImages = [
   </h2>
 
   <div 
-    x-data="{ modalOpen: false }"
+    x-data="{ sagszModalOpen: false, homelabModalOpen: false }"
     class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
   >
 
     <article>
       <h3 class="text-2xl font-bold text-cyan-400 mb-4">Proyecto SAGSZ (ERS/CRM)</h3>
 
-      <div id="sagsz-carousel" class="splide border border-gray-700 rounded-lg mb-6" aria-label="Capturas del Proyecto SAGSZ">
-        <div class="splide__track">
-          <ul class="splide__list">
-            {sagszImages.map(img => (
-              <li class="splide__slide">
-                <img src={img.src} alt={img.alt} class="rounded-lg aspect-video object-cover" />
-              </li>
-            ))}
-
-            <li class="splide__slide aspect-video bg-gray-800 flex items-center justify-center text-gray-400">
-              [Añadir capturas de SAGSZ]
-            </li>
-          </ul>
-        </div>
-      </div>
-
       <p class="text-gray-300 mb-6">
-        Un ERS/CRM para servicios zootécnicos, construido como una SPA. Incluye gestión de inventario, clientes y servicios, con un flujo CI/CD automatizado a un servidor auto-alojado.
+        Un ERS/CRM para servicios zootécnicos...
       </p>
+      
+      <img 
+        src={sagszImages[0].src} 
+        alt={sagszImages[0].alt}
+        class="border border-gray-700 rounded-lg mb-6 aspect-video object-cover"
+      />
+      
+      <button 
+        @click="sagszModalOpen = true; $nextTick(() => { refreshFsLightbox() });"
+        class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-5 rounded-lg transition-colors w-full mb-6"
+      >
+        Ver Galería del Proyecto
+      </button>
+
       <div class="flex flex-wrap gap-2">
-        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Laravel</span>
-        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
-        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Alpine.js</span>
-        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">GitHub Actions</span>
+        <span class="bg-cyan-900/50 ...">Laravel</span>
+        <span class="bg-cyan-900/50 ...">PostgreSQL</span>
+        <span class="bg-cyan-900/50 ...">Alpine.js</span>
       </div>
     </article>
 
     <article>
       <h3 class="text-2xl font-bold text-cyan-400 mb-4">Mi Home Lab (DevOps)</h3>
       <p class="text-gray-300 mb-6">
-        Para alojar SAGSZ, construí mi propio servidor con Ubuntu Server. Implementé un flujo CI/CD con GitHub Actions y segmenté mi red para un entorno de pruebas seguro.
+        Para alojar SAGSZ, construí mi propio servidor...
       </p>
 
-      <div class="border border-gray-700 rounded-lg aspect-video bg-gray-800 flex items-center justify-center text-gray-400 mb-6">
-        [Añadir diagrama de red (draw.io)]
-      </div>
+      <img 
+        src="/images/diagrama-red.png" 
+        alt="Diagrama de mi red de Home Lab" 
+        class="border border-gray-700 rounded-lg mb-6"
+      />
 
       <button 
-        @click="modalOpen = true"
+        @click="homelabModalOpen = true; $nextTick(() => { refreshFsLightbox() });"
         class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-5 rounded-lg transition-colors w-full"
       >
         Ver Galería del Home Lab
       </button>
     </article>
 
+    
     <div 
-      x-show="modalOpen" 
-      x-transition:enter="ease-out duration-300"
-      x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="ease-in duration-200"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      @keydown.escape.window="modalOpen = false"
+      x-show="sagszModalOpen" 
+      x-transition
+      @keydown.escape.window="sagszModalOpen = false"
       class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-      style="display: none;" >
+      style="display: none;" 
+    >
       <div 
-        @click.outside="modalOpen = false" 
+        @click.outside="sagszModalOpen = false" 
         class="bg-gray-800 rounded-lg shadow-2xl max-w-3xl w-full border border-gray-700"
       >
         <div class="flex justify-between items-center p-4 border-b border-gray-700">
-          <h3 class="text-lg font-semibold text-white">Galería del Home Lab</h3>
-          <button @click="modalOpen = false" class="text-gray-400 hover:text-white">&times;</button>
+          <h3 class="text-lg font-semibold text-white">Galería: Proyecto SAGSZ</h3>
+          <button @click="sagszModalOpen = false" class="text-gray-400 hover:text-white">&times;</button>
         </div>
-
         <div class="p-6">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {homelabImages.map(img => (
-              <img src={img.src} alt={img.alt} class="rounded-md aspect-square object-cover" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {sagszImages.map(img => (
+              <a href={img.src} data-fslightbox="sagsz-gallery">
+                <img src={img.src} alt={img.alt} class="rounded-md aspect-video object-cover" />
+              </a>
             ))}
-            <div class="aspect-square bg-gray-700 rounded-md flex items-center justify-center text-gray-400">[Foto 1]</div>
-            <div class="aspect-square bg-gray-700 rounded-md flex items-center justify-center text-gray-400">[Foto 2]</div>
-            <div class="aspect-square bg-gray-700 rounded-md flex items-center justify-center text-gray-400">[Foto 3]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div 
+      x-show="homelabModalOpen" 
+      x-transition
+      @keydown.escape.window="homelabModalOpen = false"
+      class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      style="display: none;" 
+    >
+      <div 
+        @click.outside="homelabModalOpen = false" 
+        class="bg-gray-800 rounded-lg shadow-2xl max-w-3xl w-full border border-gray-700"
+      >
+        <div class="flex justify-between items-center p-4 border-b border-gray-700">
+          <h3 class="text-lg font-semibold text-white">Galería: Home Lab</h3>
+          <button @click="homelabModalOpen = false" class="text-gray-400 hover:text-white">&times;</button>
+        </div>
+        <div class="p-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {homelabImages.map(img => (
+              <a href={img.src} data-fslightbox="homelab-gallery">
+                <img src={img.src} alt={img.alt} class="rounded-md aspect-square object-cover" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -109,24 +129,3 @@ const homelabImages = [
 
   </div>
 </section>
-
-<script>
-  import Splide from '@splidejs/splide';
-
-  // 'astro:page-load' es el evento de Astro para ejecutar JS
-  document.addEventListener('astro:page-load', () => {
-
-    // Aseguramos que solo se ejecute si el elemento existe
-    const carousel = document.getElementById('sagsz-carousel');
-    if (carousel) {
-      new Splide(carousel, {
-        type   : 'loop', // Se repite
-        perPage: 1,      // Muestra 1 a la vez
-        autoplay: true,  // Se mueve solo
-        pauseOnHover: true,
-        interval: 4000,  // 4 segundos
-        arrows : false,
-      }).mount();
-    }
-  });
-</script>
