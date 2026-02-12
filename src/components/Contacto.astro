@@ -19,22 +19,32 @@ const TU_EMAIL = "tu-email@gmail.com";
     Descargar mi CV
   </a>
 
-  <form 
+<form 
     name="contact" 
     method="POST" 
-    data-netlify="true" 
+    data-netlify="true"
+    netlify-honeypot="bot-field" 
+    action="/success"
     class="max-w-xl mx-auto text-left"
   >
     <input type="hidden" name="form-name" value="contact" />
     
     <div class="mb-4">
+      <p class="hidden" style="display:none;">
+        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+      </p>
       <label for="name" class="block text-gray-300 mb-2">Tu Nombre</label>
       <input 
         type="text" 
         name="name" 
         id="name" 
         required 
+        minlength="3"
+        maxlength="50"
+        pattern="^[a-zA-ZÀ-ÿ\s|_]+$"
+        title="El nombre solo debe contener letras y espacios"
         class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        placeholder="Ej. Juan Pérez"
       />
     </div>
     
@@ -46,6 +56,7 @@ const TU_EMAIL = "tu-email@gmail.com";
         id="email" 
         required 
         class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        placeholder="tu@email.com"
       />
     </div>
     
@@ -56,14 +67,18 @@ const TU_EMAIL = "tu-email@gmail.com";
         id="message" 
         rows="4" 
         required 
+        minlength="10"
+        maxlength="1000"
         class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        placeholder="Cuéntame sobre tu proyecto..."
       ></textarea>
+      <p class="text-xs text-gray-500 mt-1 text-right">Máximo 1000 caracteres</p>
     </div>
     
     <div class="text-center">
       <button 
         type="submit" 
-        class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-8 rounded-lg transition-colors w-full sm:w-auto"
+        class="bg-cyan-600 hover:bg-cyan-500 text-white font-medium py-3 px-8 rounded-lg transition-colors w-full sm:w-auto"
       >
         Enviar Mensaje
       </button>
